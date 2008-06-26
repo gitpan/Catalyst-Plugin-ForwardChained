@@ -198,7 +198,7 @@ use warnings;
 use vars qw/ $VERSION /;
 use Catalyst::Exception;
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 =head2 forward_to_chained
