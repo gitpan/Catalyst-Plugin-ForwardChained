@@ -65,12 +65,11 @@ An example testing controller
     use strict;
     use warnings;
     
-    use base qw/ 
-        Catalyst::Controller::MiSh::Extension Class::Accessor
-    /;
-    
+    use base qw/ Catalyst::Controller /;
     use Data::Dumper;
-
+    
+    __PACKAGE__->config->{ namespace } = 'testing';
+    
     sub one : PathPart( 'testing/one' ) : Chained( '/' ) : CaptureArgs( 1 ) {
         my ( $self, $c, @args ) = @_;
         push @{ $c->stash->{ called } ||= [] }, {
@@ -198,7 +197,7 @@ use warnings;
 use vars qw/ $VERSION /;
 use Catalyst::Exception;
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 =head2 forward_to_chained
